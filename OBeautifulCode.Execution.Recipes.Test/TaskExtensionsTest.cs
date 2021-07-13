@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Class1Test.cs" company="OBeautifulCode">
+// <copyright file="TaskExtensionsTest.cs" company="OBeautifulCode">
 //   Copyright (c) OBeautifulCode 2018. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
@@ -12,16 +12,7 @@ namespace OBeautifulCode.Execution.Recipes.Test
 
     using Xunit;
 
-    public static class Class1Test
+    public static class TaskExtensionsTest
     {
-        [Fact]
-        public static void Method___Should_do_something___When_called()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-        }
     }
 }

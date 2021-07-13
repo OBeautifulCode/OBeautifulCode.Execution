@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>OBeautifulCode.Execution.Recipes.TaskExtensions</id>
-    <description>Extension methods on Task</description>
+    <description>Extension methods on Task.</description>
     <tags>snippet codeinclude utility shared recipe Execution Task extension</tags>
     <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Execution/main/OBeautifulCode.Execution.Recipes/nuget-icon.png</iconUrl>
     <dependencies>
@@ -10,6 +10,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Class1.cs" target="content\net462\.recipes\OBeautifulCode.Execution\Class1.cs" />
+    <file src="TaskExtensions.cs" target="content\net462\.recipes\OBeautifulCode.Execution\TaskExtensions.cs" />
+    <file src="TaskWaitingStrategy.cs" target="content\net462\.recipes\OBeautifulCode.Execution\TaskWaitingStrategy.cs" />
   </files>
 </package>
