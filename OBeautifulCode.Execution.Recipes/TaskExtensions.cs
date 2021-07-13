@@ -46,38 +46,7 @@ namespace OBeautifulCode.Execution.Recipes
             TimeSpan pollingInterval = default,
             TaskWaitingStrategy taskWaitingStrategy = TaskWaitingStrategy.Sleep)
         {
-            if (task == null)
-            {
-                throw new ArgumentNullException(nameof(task));
-            }
-
-            async Task<string> UnnecessaryReturnTaskToReuseReturningObjectCodePath()
-            {
-                try
-                {
-                    await task;
-
-                    task.IfNotCompletedThrowException();
-
-                    task.IfFaultedTaskExtractAndThrowException();
-
-                    // This result is not necessary but it is asserted to be the case later so those location must be congruent.
-                    // This is to allow for reusing a single code path for both returning and void tasks.
-                    return string.Empty;
-                }
-                catch
-                {
-                    // This is here intentionally as the TPL will sometimes do dumb things...
-                    throw;
-                }
-            }
-
-            var unnecessaryResult = UnnecessaryReturnTaskToReuseReturningObjectCodePath().RunUntilCompletion(pollingInterval, taskWaitingStrategy);
-
-            if (unnecessaryResult != string.Empty)
-            {
-                throw new InvalidOperationException(Invariant($"Task was run until completion but it was expected to be a void call and thus during the wrapping should have returned {typeof(string).Name}.{nameof(string.Empty)} but instead it returned '{unnecessaryResult}'."));
-            }
+            task.InternalRunUntilCompletion(pollingInterval, taskWaitingStrategy);
         }
 
         /// <summary>
@@ -94,6 +63,16 @@ namespace OBeautifulCode.Execution.Recipes
             this Task<T> task,
             TimeSpan pollingInterval = default,
             TaskWaitingStrategy taskWaitingStrategy = TaskWaitingStrategy.Sleep)
+        {
+            task.InternalRunUntilCompletion(pollingInterval, taskWaitingStrategy);
+
+            return task.Result;
+        }
+
+        private static void InternalRunUntilCompletion(
+            this Task task,
+            TimeSpan pollingInterval,
+            TaskWaitingStrategy taskWaitingStrategy)
         {
             try
             {
@@ -129,8 +108,6 @@ namespace OBeautifulCode.Execution.Recipes
                 }
 
                 task.IfFaultedTaskExtractAndThrowException();
-
-                return task.Result;
             }
             catch
             {
@@ -155,15 +132,6 @@ namespace OBeautifulCode.Execution.Recipes
                 {
                     ExceptionDispatchInfo.Capture(exception).Throw();
                 }
-            }
-        }
-
-        private static void IfNotCompletedThrowException(
-            this Task task)
-        {
-            if (!task.IsCompleted)
-            {
-                throw new InvalidOperationException(Invariant($"The task await was passed but the task was not completed, status '{task.Status}'."));
             }
         }
     }
