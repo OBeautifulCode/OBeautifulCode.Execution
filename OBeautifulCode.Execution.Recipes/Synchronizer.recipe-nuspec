@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>OBeautifulCode.Execution.Recipes.Synchronizer</id>
+    <description>Execute code while blocking the execution of other code.</description>
+    <tags>snippet codeinclude utility shared recipe sync lock semaphore</tags>
+    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Execution/main/OBeautifulCode.Execution.Recipes/nuget-icon.png</iconUrl>
+    <dependencies>
+      <dependency id="OBeautifulCode.CodeAnalysis.Recipes.SuppressBecause" version="1.0.15" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Synchronizer.cs" target="content\net462\.recipes\OBeautifulCode.Execution\Synchronizer.cs" />
+  </files>
+</package>
