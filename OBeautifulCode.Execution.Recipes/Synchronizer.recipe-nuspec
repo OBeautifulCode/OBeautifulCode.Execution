@@ -6,7 +6,7 @@
     <tags>snippet codeinclude utility shared recipe sync lock semaphore</tags>
     <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Execution/main/OBeautifulCode.Execution.Recipes/nuget-icon.png</iconUrl>
     <dependencies>
-      <dependency id="OBeautifulCode.CodeAnalysis.Recipes.SuppressBecause" version="1.0.15" />
+      <dependency id="OBeautifulCode.CodeAnalysis.Recipes.SuppressBecause" version="1.0.17" />
     </dependencies>
   </metadata>
   <files>
