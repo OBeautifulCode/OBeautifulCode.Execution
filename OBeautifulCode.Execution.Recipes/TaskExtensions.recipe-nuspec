@@ -10,7 +10,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="AsyncContext.cs" target="content\net462\.recipes\OBeautifulCode.Execution\AsyncContext.cs" />
     <file src="TaskExtensions.cs" target="content\net462\.recipes\OBeautifulCode.Execution\TaskExtensions.cs" />
-    <file src="TaskWaitingStrategy.cs" target="content\net462\.recipes\OBeautifulCode.Execution\TaskWaitingStrategy.cs" />
   </files>
 </package>
