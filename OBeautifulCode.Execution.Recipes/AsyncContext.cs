@@ -686,7 +686,7 @@ namespace OBeautifulCode.Execution.Recipes
     /// <typeparam name="T">The type of context for the action.</typeparam>
     [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [global::System.CodeDom.Compiler.GeneratedCode("OBeautifulCode.Execution.Recipes", "See package version number")]
-    public sealed class BoundActionField<T>
+    internal sealed class BoundActionField<T>
     {
         private BoundAction _field;
 
